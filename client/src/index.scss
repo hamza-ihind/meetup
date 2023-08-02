@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "./themes.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "outfit", sans-serif;
+}
+
+li,
+a {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+/* Color Scheme */
+:root {
+    /* Light Colors */
+    --primary-light-color: #e5dfdf;
+
+    --secondary-light-color: #c9dcdc;
+
+    --third-light-color: #357376;
+    /* Dark Colors */
+    --primary-dark-color: #1c182f;
+
+    --secondary-dark-color: #252138;
+
+    --third-dark-color: #8ec3b0;
+
+    /* State Colors */
+    --success-color: #4bb543;
+
+    --warning-color: #ffcc00;
+
+    --color: #d1ebeb;
+
+    --error-color: #ff3333;
+}

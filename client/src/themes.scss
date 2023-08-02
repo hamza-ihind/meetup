@@ -1,0 +1,45 @@
+$themes: (
+    light: (PrimaryBackgroundColor: #e5dfdf,
+        SecondBackgroundColor: #c9dcdc,
+        FooterColor: #357376,
+        greenColor: #357376,
+        filter: invert(0),
+        linksColor: #585858,
+        textColor: black,
+        progressBar: #357376,
+    ),
+    dark: (PrimaryBackgroundColor: #052729,
+        SecondBackgroundColor: #071b1c,
+        FooterColor: #013d40,
+        greenColor: #48c2c8,
+        filter: invert(1),
+        linksColor: #d5d5d5,
+        textColor: white,
+        progressBar: #48c2c8,
+    ),
+);
+
+@mixin themify($themes) {
+
+    @each $theme,
+    $map in $themes {
+        .theme-#{$theme} & {
+            $theme-map: () !global;
+
+            @each $key,
+            $submap in $map {
+                $value: map-get(map-get($themes, $theme), "#{$key}");
+                $theme-map: map-merge($theme-map,
+                    ($key: $value,
+                    )) !global;
+            }
+
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
